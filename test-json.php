@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>jQuery.getJSON demo</title>
+  <style>
+  img {
+    height: 100px;
+    float: left;
+  }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+ 
+<div id="images"></div>
+ 
+<script>
+/*(function() {
+  var flickerAPI = "http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?";
+  $.getJSON( flickerAPI, {
+    tags: "mount rainier",
+    tagmode: "any",
+    format: "json"
+  })
+    .done(function( data ) {
+      $.each( data.items, function( i, item ) {
+        $( "<img>" ).attr( "src", item.media.m ).appendTo( "#images" );
+        if ( i === 3 ) {
+          return false;
+        }
+      });
+    });
+})();*/
+var flickerAPI = "http://1.sell.do/hiranandani_units.json";
+var jqxhr = $.getJSON( "http://1.sell.do/hiranandani_units.json", function() {
+  console.log( "success" );
+})
+  .done(function() {
+    console.log( "second success" );
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function() {
+    console.log( "complete" );
+  });
+</script>
+ 
+</body>
+</html>
